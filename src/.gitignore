@@ -1,0 +1,22 @@
+# Gradle build directory
+/build/
+
+# IntelliJ IDEA files
+.idea/
+
+# Gradle Wrapper files
+/gradle/wrapper/gradle-wrapper.jar
+/gradle/wrapper/gradle-wrapper.properties
+
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# Gradle cache
+.gradle/
+
+# Dependency directories
+/bin/
+/out/
