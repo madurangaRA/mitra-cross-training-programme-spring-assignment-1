@@ -13,7 +13,7 @@ public class AccountTransformer {
 
     public static Account createAccountRequestToDomain(CreateAccountRequest createRequest) {
         Account target= new Account();
-        BeanUtils.copyProperties(createRequest, target);
+        BeanUtils.copyProperties( createRequest, target );
         return target;
     }
 
