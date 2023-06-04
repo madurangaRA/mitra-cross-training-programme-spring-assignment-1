@@ -17,11 +17,13 @@ import org.hibernate.annotations.GenericGenerator;
 @Setter
 public class Account {
 
+
     @Id
     @Column(name = "account_number")
-    @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name = "uuid2", strategy = "uuid2")
+    @GeneratedValue(generator = "randomLongGenerator")
+    @GenericGenerator(name = "randomLongGenerator", strategy = "com.mitra.bank.common.RandomLongIdentifierGenerator")
     private String id;
+
 
     @Column(name = "customer_name")
     private String customerName;
@@ -34,4 +36,7 @@ public class Account {
 
     @Column(name = "nic")
     private String nic;
+
+    @Column(name = "balance")
+    private double balance;
 }

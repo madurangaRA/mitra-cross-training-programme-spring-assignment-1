@@ -19,4 +19,10 @@ public class AccountServiceImpl implements AccountService{
 
         return accountRepository.save(account);
     }
+    @Override
+    public Account checkBalance(String accountNumber) {
+        //AccountValidater.validateFindByIdRequest(id);
+        Account account = accountRepository.findById(accountNumber).orElse(null);
+        return account;
+    }
 }

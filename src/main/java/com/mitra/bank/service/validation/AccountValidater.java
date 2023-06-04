@@ -1,6 +1,5 @@
 package com.mitra.bank.service.validation;
 
-import com.mitra.bank.common.AccountType;
 import com.mitra.bank.domain.Account;
 import org.springframework.util.Assert;
 
