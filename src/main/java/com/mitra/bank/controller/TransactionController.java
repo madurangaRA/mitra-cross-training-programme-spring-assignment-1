@@ -13,19 +13,36 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * The  Transaction controller handles all transaction related functions
+ */
 @RestController
 public class TransactionController {
 
     @Autowired
     private TransactionService transactionService;
-    @RequestMapping(value = RequestMapper.DEPOSIT, method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE )
+
+    /**
+     * Deposits given value from the given account number
+     *
+     * @param doTransactionRequest the do transaction request
+     * @return the do transaction response
+     */
+    @RequestMapping(value = RequestMapper.DEPOSIT, method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public @ResponseBody DoTransactionResponse deposit(@RequestBody DoTransactionRequest doTransactionRequest) {
         Transaction transaction = TransactionTransformer.doTransactionRequestToDomain(doTransactionRequest);
-        Account updatedAccount = transactionService.doTransaction(transaction,"deposit" );
+        Account updatedAccount = transactionService.doTransaction(transaction, "deposit");
         return TransactionTransformer.doTransactionDomainToRequest(updatedAccount);
     }
-    @RequestMapping(value = RequestMapper.WITHDRAW, method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE )
+
+    /**
+     * Withdraws given value from the given account number.
+     *
+     * @param doTransactionRequest the do transaction request
+     * @return the do transaction response
+     */
+    @RequestMapping(value = RequestMapper.WITHDRAW, method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public @ResponseBody DoTransactionResponse withdraw(@RequestBody DoTransactionRequest doTransactionRequest) {
         Transaction transaction = TransactionTransformer.doTransactionRequestToDomain(doTransactionRequest);
@@ -33,7 +50,12 @@ public class TransactionController {
         return TransactionTransformer.doTransactionDomainToRequest(updatedAccount);
     }
 
-    // read all students
+    /**
+     * Gets transaction history for given account number.
+     *
+     * @param accountNumber the account number
+     * @return the history
+     */
     @RequestMapping(value = RequestMapper.HISTORY, method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public @ResponseBody TransactionsHistoryResponse getHistory(@PathVariable String accountNumber) {

@@ -6,6 +6,9 @@ import lombok.Setter;
 
 import java.util.Date;
 
+/**
+ * Request of creat account
+ */
 @Getter
 @Setter
 public class CreateAccountRequest {

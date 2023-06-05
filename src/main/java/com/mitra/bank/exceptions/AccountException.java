@@ -2,9 +2,11 @@ package com.mitra.bank.exceptions;
 
 import java.io.Serial;
 import java.util.Date;
+
 import org.springframework.http.HttpStatus;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
+
 @Getter
 public class AccountException extends RuntimeException {
 

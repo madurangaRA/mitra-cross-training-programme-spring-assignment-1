@@ -8,6 +8,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * Error response.
+ */
 @Getter
 @Setter
 @NoArgsConstructor
@@ -15,8 +18,8 @@ import lombok.Setter;
 @Builder
 public class ErrorResponse {
 
-	private Date timestamp;
-	private String errorCode;
-	private String message;
+    private Date timestamp;
+    private String errorCode;
+    private String message;
 
 }
