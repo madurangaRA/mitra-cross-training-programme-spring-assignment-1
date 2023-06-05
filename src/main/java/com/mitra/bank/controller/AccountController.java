@@ -7,9 +7,11 @@ import com.mitra.bank.service.dto.AccountResponse;
 import com.mitra.bank.service.dto.BalanceResponse;
 import com.mitra.bank.service.dto.CreateAccountRequest;
 import com.mitra.bank.service.transformers.AccountTransformer;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -20,7 +22,7 @@ public class AccountController {
 
     @RequestMapping(value = RequestMapper.CREATE_ACCOUNT, method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE )
     @ResponseStatus(HttpStatus.CREATED)
-    public @ResponseBody AccountResponse create(@RequestBody CreateAccountRequest createAccountRequest) {
+    public @ResponseBody AccountResponse create(@Valid @RequestBody CreateAccountRequest createAccountRequest) {
         Account account = AccountTransformer.createAccountRequestToDomain(createAccountRequest);
         Account createdAccount = accountService.createAccount(account);
         return AccountTransformer.accountDomainToResponse(createdAccount);

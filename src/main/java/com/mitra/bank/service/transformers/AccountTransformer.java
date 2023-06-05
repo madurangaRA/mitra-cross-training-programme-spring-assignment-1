@@ -24,7 +24,6 @@ public class AccountTransformer {
         target.setAccountNumber(account.getId());
         return target;
     }
-
     public static BalanceResponse balanceDomainToResponse(Account account) {
         BalanceResponse target = new BalanceResponse();
         target.setBalance(account.getBalance());

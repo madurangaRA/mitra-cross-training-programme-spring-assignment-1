@@ -1,6 +1,7 @@
 package com.mitra.bank.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -14,7 +15,6 @@ import java.util.Date;
 @Getter
 @Setter
 public class Transaction {
-
     @Id
     @Column(name = "id")
     @GeneratedValue(generator = "uuid2")

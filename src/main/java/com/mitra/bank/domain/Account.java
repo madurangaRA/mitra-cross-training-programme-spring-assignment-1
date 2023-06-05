@@ -1,12 +1,13 @@
 package com.mitra.bank.domain;
 
-
 import java.util.Date;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
+
 
 @Entity
 @Table(name = "account")
@@ -23,7 +24,6 @@ public class Account {
     @GeneratedValue(generator = "randomLongGenerator")
     @GenericGenerator(name = "randomLongGenerator", strategy = "com.mitra.bank.common.RandomLongIdentifierGenerator")
     private String id;
-
 
     @Column(name = "customer_name")
     private String customerName;

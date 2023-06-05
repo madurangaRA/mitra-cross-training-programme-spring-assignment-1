@@ -8,7 +8,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
 @Repository
 public interface TransactionRepository extends JpaRepository<Transaction, String> {
     @Query("SELECT e FROM Transaction e WHERE e.accountNumber = :accountNumber")
